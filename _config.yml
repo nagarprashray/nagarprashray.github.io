@@ -1,0 +1,32 @@
+title: Prashray Nagar
+description: ASIC and FPGA design and verification engineer portfolio.
+url: "https://nagarprashray.github.io"
+baseurl: ""
+email: nagarprashray16@gmail.com
+markdown: kramdown
+permalink: /projects/:name/
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+exclude:
+  - PLAN.md
+  - Portfolio Information.docx
+  - "Resume/Prashray ASIC-FPGA Resume.docx"
+  - "~$rtfolio Information.docx"
+  - "~WRL0948.tmp"
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - vendor/bundle
+  - .bundle

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article class="wrap project-detail">
+  <a class="back" href="{{ '/#projects' | relative_url }}">← All projects</a>
+  <p class="eyebrow">{{ page.category }}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="project-org">{{ page.organization }}</p>
+  <div class="chips" aria-label="Tools used">
+    {% for tool in page.tools %}<span class="chip">{{ tool }}</span>{% endfor %}
+  </div>
+  <div class="project-copy">
+    {{ content }}
+  </div>
+
+  {% assign ordered_projects = site.projects | sort: "order" %}
+  {% assign previous_project = nil %}
+  {% assign next_project = nil %}
+  {% assign found_current = false %}
+  {% for project in ordered_projects %}
+    {% if found_current %}
+      {% assign next_project = project %}
+      {% break %}
+    {% endif %}
+    {% if project.url == page.url %}
+      {% assign found_current = true %}
+    {% else %}
+      {% assign previous_project = project %}
+    {% endif %}
+  {% endfor %}
+  <nav class="project-nav" aria-label="Project navigation">
+    {% if previous_project %}<a href="{{ previous_project.url | relative_url }}">← {{ previous_project.title }}</a>{% else %}<span></span>{% endif %}
+    {% if next_project %}<a href="{{ next_project.url | relative_url }}">{{ next_project.title }} →</a>{% endif %}
+  </nav>
+</article>

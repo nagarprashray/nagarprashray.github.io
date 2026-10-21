@@ -1,0 +1,11 @@
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+.bundle/
+~$*
+~WRL*.tmp
+Resume/*.docx
+Portfolio Information.docx
+PLAN.md
