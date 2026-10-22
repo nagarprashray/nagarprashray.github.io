@@ -1,17 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
+    {% assign portfolio = site.data.portfolio %}
+    {% assign meta_title = page.title %}
+    {% assign description = page.description | default: portfolio.site_description %}
+    {% if page.collection == 'projects' %}
+      {% assign project_meta = portfolio.projects | where: 'slug', page.slug | first %}
+      {% assign meta_title = project_meta.title %}
+      {% assign description = project_meta.description %}
+    {% endif %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-    {% assign description = page.description | default: site.description %}
+    <title>{% if meta_title %}{{ meta_title }} · {% endif %}{{ portfolio.profile.name }}</title>
     <meta name="description" content="{{ description | strip_html | normalize_whitespace | escape }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <meta property="og:type" content="{% if page.collection == 'projects' %}article{% else %}website{% endif %}">
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}">
+    <meta property="og:title" content="{% if meta_title %}{{ meta_title }} · {% endif %}{{ portfolio.profile.name }}">
     <meta property="og:description" content="{{ description | strip_html | normalize_whitespace | escape }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:site_name" content="{{ portfolio.profile.name }}">
     <meta name="twitter:card" content="summary">
     <meta name="theme-color" content="#1f5f8b" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">

@@ -1,19 +1,26 @@
 ---
 layout: default
 ---
+{% assign portfolio = site.data.portfolio %}
+{% assign project = portfolio.projects | where: "slug", page.slug | first %}
 <article class="wrap project-detail">
   <a class="back" href="{{ '/#projects' | relative_url }}">← All projects</a>
-  <p class="eyebrow">{{ page.category }}</p>
-  <h1>{{ page.title }}</h1>
-  <p class="project-org">{{ page.organization }}</p>
+  <p class="eyebrow">{{ project.category }}</p>
+  <h1>{{ project.title }}</h1>
+  <p class="project-org">{{ project.organization }}</p>
   <div class="chips" aria-label="Tools used">
-    {% for tool in page.tools %}<span class="chip">{{ tool }}</span>{% endfor %}
+    {% for tool in project.tools %}<span class="chip">{{ tool }}</span>{% endfor %}
   </div>
   <div class="project-copy">
-    {{ content }}
+    <h2>Problem</h2>
+    <p>{{ project.problem }}</p>
+    <h2>What I did</h2>
+    <ul>{% for item in project.work %}<li>{{ item }}</li>{% endfor %}</ul>
+    <h2>Result</h2>
+    <div class="result-callout">{{ project.result_detail }}</div>
   </div>
 
-  {% assign ordered_projects = site.projects | sort: "order" %}
+  {% assign ordered_projects = portfolio.projects | sort: "order" %}
   {% assign previous_project = nil %}
   {% assign next_project = nil %}
   {% assign found_current = false %}
@@ -22,14 +29,14 @@ layout: default
       {% assign next_project = project %}
       {% break %}
     {% endif %}
-    {% if project.url == page.url %}
+    {% if project.slug == page.slug %}
       {% assign found_current = true %}
     {% else %}
       {% assign previous_project = project %}
     {% endif %}
   {% endfor %}
   <nav class="project-nav" aria-label="Project navigation">
-    {% if previous_project %}<a href="{{ previous_project.url | relative_url }}">← {{ previous_project.title }}</a>{% else %}<span></span>{% endif %}
-    {% if next_project %}<a href="{{ next_project.url | relative_url }}">{{ next_project.title }} →</a>{% endif %}
+    {% if previous_project %}{% capture previous_url %}/projects/{{ previous_project.slug }}/{% endcapture %}<a href="{{ previous_url | relative_url }}">← {{ previous_project.title }}</a>{% else %}<span></span>{% endif %}
+    {% if next_project %}{% capture next_url %}/projects/{{ next_project.slug }}/{% endcapture %}<a href="{{ next_url | relative_url }}">{{ next_project.title }} →</a>{% endif %}
   </nav>
 </article>

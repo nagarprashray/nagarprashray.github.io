@@ -1,8 +1,5 @@
-title: Prashray Nagar
-description: ASIC and FPGA design and verification engineer portfolio.
 url: "https://nagarprashray.github.io"
 baseurl: ""
-email: nagarprashray16@gmail.com
 markdown: kramdown
 permalink: /projects/:name/
 

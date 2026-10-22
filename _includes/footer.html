@@ -1,9 +1,10 @@
 <footer>
+  {% assign profile = site.data.portfolio.profile %}
   <div class="wrap footer-inner">
-    <span>&copy; {{ "now" | date: "%Y" }} {{ site.data.profile.name }}</span>
-    <span>{{ site.data.profile.location }}</span>
-    <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a>
-    <a href="{{ site.data.profile.github_url }}" rel="me">GitHub</a>
-    <a href="{{ site.data.profile.linkedin_url }}" rel="me">LinkedIn</a>
+    <span>&copy; {{ "now" | date: "%Y" }} {{ profile.name }}</span>
+    <span>{{ profile.location }}</span>
+    <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+    <a href="{{ profile.github_url }}" rel="me">GitHub</a>
+    <a href="{{ profile.linkedin_url }}" rel="me">LinkedIn</a>
   </div>
 </footer>

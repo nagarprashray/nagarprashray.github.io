@@ -1,0 +1,142 @@
+{
+  "site_description": "Portfolio of Prashray Nagar, an ASIC and FPGA design and verification engineer specializing in RTL, UVM, SoC integration, and computer architecture.",
+  "profile": {
+    "name": "Prashray Nagar",
+    "title": "ASIC/FPGA Design and Verification Engineer",
+    "location": "Berkeley, California",
+    "email": "nagarprashray16@gmail.com",
+    "github_url": "https://github.com/nagarprashray",
+    "github_label": "github.com/nagarprashray",
+    "linkedin_url": "https://www.linkedin.com/in/nagarprashray/",
+    "linkedin_label": "linkedin.com/in/nagarprashray",
+    "availability": "F-1 OPT · Willing to relocate",
+    "headline": "ASIC and FPGA design and verification engineer focused on front-end RTL, reusable IP, functional verification, and computer architecture.",
+    "about": [
+      "I write hardware and spend just as much time proving it is correct. My work spans synthesizable SystemVerilog and Verilog RTL, UVM verification, assertions and coverage, FPGA prototyping, and cycle-accurate architecture simulation.",
+      "I am currently an FPGA Engineering Intern at ChipChop, working across RTL design, verification, synthesis, and SoC peripheral integration. I have also built verification and simulation projects around I2C, cache coherence, and branch prediction, and presented research on energy-efficient VLSI technologies for AI and machine-learning workloads at IEEE ASSIC 2024."
+    ],
+    "focus": [
+      "ASIC Design",
+      "FPGA Design",
+      "RTL Development",
+      "Design Verification",
+      "SoC Integration",
+      "Computer Architecture"
+    ],
+    "resume_path": "/Resume/Prashray%20ASIC-FPGA%20Resume.pdf",
+    "resume_label": "Download resume",
+    "resume_intro": "Download a concise overview of my ASIC, FPGA, RTL, and verification experience."
+  },
+  "experience": [
+    {
+      "role": "FPGA Engineering Intern",
+      "company": "ChipChop",
+      "location": "California, USA",
+      "dates": "July 2026 – Present",
+      "bullets": [
+        "Developed an RTL testbench mutation grader for agent-generated ASIC testbenches, defining targeted tests and debug heuristics that achieved more than 70% fault-detection accuracy across five production-representative IP-block scenarios.",
+        "Executed design, validation, and synthesis for an FPGA-based SoC prototype targeting an ASIC tape-out, structuring peripheral IP for portability between FPGA and ASIC flows.",
+        "Authored reusable UART, SPI, GPIO, and USB peripheral IP in Verilog and SystemVerilog; integrated the blocks into the SoC bus fabric and validated on-target operation before ASIC handoff."
+      ]
+    },
+    {
+      "role": "System Engineering Intern",
+      "company": "Centre for Environment Education (CEE)",
+      "location": "Ahmedabad, India",
+      "dates": "July 2023 – October 2023",
+      "bullets": [
+        "Developed embedded hardware interfaces and firmware communication routines across distributed microcontrollers using SPI, I2C, and UART.",
+        "Configured RTOS tasks and low-latency interrupt handling for multi-sensor acquisition, synchronizing peripheral actuators with sub-100 ms response.",
+        "Engineered power-efficient controller nodes with embedded edge processing to reduce false alarms while operating within thermal and power limits."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "i2c-multibus-verification",
+      "title": "I2C Multi-Bus Verification Using Layered UVM",
+      "description": "Layered SystemVerilog UVM verification of a configurable I2C multi-bus controller with coverage-driven regressions.",
+      "category": "Design Verification",
+      "organization": "Academic project",
+      "summary": "A layered UVM environment for a configurable I2C multi-bus controller with Avalon-MM and Wishbone host interfaces.",
+      "problem": "Verify a configurable I2C Multi-Bus master controller across its host-side register interfaces and multi-master, multi-bus behavior. The environment needed reusable components, protocol-aware checking, and coverage feedback rather than a collection of directed tests.",
+      "work": [
+        "Designed the controller integration around VHDL RTL with Avalon-MM and Wishbone interfaces for SoC use.",
+        "Built layered SystemVerilog UVM agents, sequencers, drivers, monitors, and a scoreboard.",
+        "Exercised multi-master and multi-bus behavior through modular sequences and automated regressions.",
+        "Connected assertions and functional coverage to expose missing protocol and configuration scenarios."
+      ],
+      "result": "92% functional coverage with assertion-linked coverage analysis.",
+      "result_detail": "Reached 92% functional coverage through automated regression and assertion-linked coverage analysis.",
+      "tools": ["SystemVerilog", "UVM", "SVA", "VHDL", "I2C"],
+      "order": 1
+    },
+    {
+      "slug": "mesi-moesi-cache-coherence",
+      "title": "MESI and MOESI Cache-Coherence Simulator",
+      "description": "Cycle-accurate C++ simulation of MESI and MOESI coherence across a four-processor shared-memory system.",
+      "category": "Computer Architecture",
+      "organization": "Academic project",
+      "summary": "A trace-driven shared-memory simulator comparing MESI and MOESI coherence behavior under bus contention.",
+      "problem": "Measure how coherence policy affects bus traffic and transaction behavior in a symmetric multiprocessing system, particularly when dirty cache lines can be supplied by another cache instead of memory.",
+      "work": [
+        "Developed a cycle-accurate, trace-driven shared-memory simulator for four processors.",
+        "Modeled snooping-based MESI and MOESI finite-state machines in C++.",
+        "Instrumented invalidation behavior, cache-to-cache transfers, memory transactions, and shared-bus arbitration.",
+        "Compared protocol behavior under parallel execution traces and identified contention sources."
+      ],
+      "result": "MOESI reduced memory-bus traffic by 13% through Owned-state cache-to-cache sharing.",
+      "result_detail": "MOESI reduced memory-bus traffic by 13% and lowered transaction latency by using the Owned state for cache-to-cache data sharing.",
+      "tools": ["C++", "MESI", "MOESI", "Cache Coherence", "Cycle-Accurate Simulation"],
+      "order": 2
+    },
+    {
+      "slug": "branch-predictor-simulator",
+      "title": "Branch-Predictor Simulator for Execution-Trace Analysis",
+      "description": "C++ simulator comparing bimodal, gshare, and hybrid branch-prediction algorithms using processor traces.",
+      "category": "Computer Architecture",
+      "organization": "Academic project",
+      "summary": "A configurable C++ simulator for evaluating bimodal, gshare, and tournament branch predictors on execution traces.",
+      "problem": "Evaluate branch-prediction organizations and parameter choices that reduce mispredictions and pipeline flushes in a speculative superscalar processor.",
+      "work": [
+        "Built a configurable C++ simulator for bimodal, gshare, and tournament/hybrid prediction.",
+        "Implemented pattern-history-table indexing, global-history updates, selector training, and predictor statistics.",
+        "Swept predictor configurations against processor execution traces to compare accuracy and storage tradeoffs.",
+        "Analyzed how history length and table sizing affected simulated pipeline stalls."
+      ],
+      "result": "Achieved 90% prediction accuracy and a one-percentage-point gain over the bimodal baseline.",
+      "result_detail": "Reached 90% prediction accuracy, improving by one percentage point over the bimodal baseline and reducing simulated pipeline stalls.",
+      "tools": ["C++", "Bimodal", "Gshare", "Hybrid Predictor", "Trace Simulation"],
+      "order": 3
+    }
+  ],
+  "publication": {
+    "venue": "IEEE ASSIC 2024",
+    "title": "Emerging VLSI Technologies for High-performance AI and ML Applications",
+    "description": "Presented at the 2024 International Conference on Advancements in Smart, Secure and Intelligent Computing. The work examines VLSI accelerators and low-power design approaches for improving AI/ML performance and energy efficiency."
+  },
+  "skills": [
+    {"group": "RTL & FPGA Design", "items": "SystemVerilog, Verilog, VHDL, synthesizable SoC prototyping, peripheral IP, FSM architecture, CDC/RDC"},
+    {"group": "Design Verification", "items": "UVM, Cocotb, SVA, constrained-random verification, functional and code coverage, mutation testing"},
+    {"group": "Architecture & Protocols", "items": "SoC integration, RISC-V, cache coherence, branch prediction, AXI4/Lite, AHB, APB, Wishbone, Avalon-MM, PCIe, USB, I2C, SPI, UART"},
+    {"group": "ASIC & EDA", "items": "Design Compiler, PrimeTime, SpyGlass, VC Formal, Formality, Genus, QuestaSim, ModelSim, Verilator, Cadence Virtuoso"},
+    {"group": "FPGA & Hardware", "items": "AMD Xilinx Vivado, Intel Quartus Prime, Zynq, UltraScale+, oscilloscopes, VNAs, spectrum analyzers, signal generators, hardware bring-up"},
+    {"group": "Programming & Tools", "items": "C, C++, Python, MATLAB, Tcl, Bash, Make, Git, Docker, Linux, Keysight ADS, Ansys HFSS"}
+  ],
+  "education": [
+    {
+      "degree": "Master of Computer Engineering",
+      "institution": "North Carolina State University",
+      "location": "Raleigh, North Carolina",
+      "dates": "August 2024 – May 2026",
+      "detail": "GPA: 3.3/4.0 · ASIC and Verification Design, Microprocessor Architecture, Parallel Computing"
+    },
+    {
+      "degree": "Bachelor of Electronics and Communication",
+      "institution": "Charusat University",
+      "location": "Anand, India",
+      "dates": "July 2020 – May 2024",
+      "detail": "GPA: 3.5/4.0 · VLSI Systems and Design, Embedded Systems, Networking, Data Structures, Compiler Design"
+    }
+  ]
+}

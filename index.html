@@ -1,8 +1,8 @@
 ---
 layout: default
-description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verification engineer specializing in RTL, UVM, SoC integration, and computer architecture.
 ---
-{% assign profile = site.data.profile %}
+{% assign portfolio = site.data.portfolio %}
+{% assign profile = portfolio.profile %}
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">{{ profile.title }}</p>
@@ -35,7 +35,7 @@ description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verificati
   <div class="wrap">
     <h2 id="experience-title">Experience</h2>
     <div class="timeline">
-      {% for job in site.data.experience %}
+      {% for job in portfolio.experience %}
       <article class="job">
         <p class="when">{{ job.dates }}</p>
         <div>
@@ -52,16 +52,17 @@ description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verificati
 <section id="projects" aria-labelledby="projects-title">
   <div class="wrap">
     <h2 id="projects-title">Selected projects</h2>
-    {% assign categories = site.projects | map: "category" | uniq | sort %}
+    {% assign categories = portfolio.projects | map: "category" | uniq | sort %}
     <div class="filters" role="group" aria-label="Filter projects">
       <button type="button" aria-pressed="true" data-filter="all">All</button>
       {% for category in categories %}<button type="button" aria-pressed="false" data-filter="{{ category | escape }}">{{ category }}</button>{% endfor %}
     </div>
     <p id="project-status" class="sr-only" aria-live="polite"></p>
     <div class="project-grid">
-      {% assign projects = site.projects | sort: "order" %}
+      {% assign projects = portfolio.projects | sort: "order" %}
       {% for project in projects %}
-      <a class="project-card" data-category="{{ project.category | escape }}" href="{{ project.url | relative_url }}">
+      {% capture project_url %}/projects/{{ project.slug }}/{% endcapture %}
+      <a class="project-card" data-category="{{ project.category | escape }}" href="{{ project_url | relative_url }}">
         <span class="eyebrow">{{ project.category }}</span>
         <h3>{{ project.title }}</h3>
         <p>{{ project.summary }}</p>
@@ -77,9 +78,9 @@ description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verificati
   <div class="wrap">
     <h2 id="publication-title">Publication</h2>
     <article class="publication-card">
-      <p class="eyebrow">IEEE ASSIC 2024</p>
-      <h3>Emerging VLSI Technologies for High-performance AI and ML Applications</h3>
-      <p>Presented at the 2024 International Conference on Advancements in Smart, Secure and Intelligent Computing. The work examines VLSI accelerators and low-power design approaches for improving AI/ML performance and energy efficiency.</p>
+      <p class="eyebrow">{{ portfolio.publication.venue }}</p>
+      <h3>{{ portfolio.publication.title }}</h3>
+      <p>{{ portfolio.publication.description }}</p>
     </article>
   </div>
 </section>
@@ -88,7 +89,7 @@ description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verificati
   <div class="wrap">
     <h2 id="skills-title">Skills</h2>
     <div class="skills-grid">
-      {% for skill in site.data.skills %}<article><h3>{{ skill.group }}</h3><p>{{ skill.items }}</p></article>{% endfor %}
+      {% for skill in portfolio.skills %}<article><h3>{{ skill.group }}</h3><p>{{ skill.items }}</p></article>{% endfor %}
     </div>
   </div>
 </section>
@@ -97,7 +98,7 @@ description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verificati
   <div class="wrap">
     <h2 id="education-title">Education</h2>
     <div class="education-list">
-      {% for education in site.data.education %}
+      {% for education in portfolio.education %}
       <article>
         <h3>{{ education.degree }}</h3>
         <p>{{ education.institution }} · {{ education.location }}</p>
@@ -111,7 +112,7 @@ description: Portfolio of Prashray Nagar, an ASIC and FPGA design and verificati
 <section id="resume" aria-labelledby="resume-title">
   <div class="wrap">
     <h2 id="resume-title">Resume</h2>
-    <p>Download a concise overview of my ASIC, FPGA, RTL, and verification experience.</p>
+    <p>{{ profile.resume_intro }}</p>
     <a class="button primary" href="{{ profile.resume_path | relative_url }}" download>{{ profile.resume_label }}</a>
   </div>
 </section>
