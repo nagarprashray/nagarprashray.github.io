@@ -12,8 +12,8 @@
     "availability": "F-1 OPT · Willing to relocate",
     "headline": "ASIC and FPGA design and verification engineer focused on front-end RTL, reusable IP, functional verification, and computer architecture.",
     "about": [
-      "I write hardware and spend just as much time proving it is correct. My work spans synthesizable SystemVerilog and Verilog RTL, UVM verification, assertions and coverage, FPGA prototyping, and cycle-accurate architecture simulation.",
-      "I am currently an FPGA Engineering Intern at ChipChop, working across RTL design, verification, synthesis, and SoC peripheral integration. I have also built verification and simulation projects around I2C, cache coherence, and branch prediction, and presented research on energy-efficient VLSI technologies for AI and machine-learning workloads at IEEE ASSIC 2024."
+      "I am a computer engineer with a background in digital hardware design, verification, FPGA-based prototyping and computer architecture. I completed my Master of Computer Engineering at North Carolina State University, where I developed practical experience through engineering projects involving SystemVerilog, UVM, RTL development, hardware interfaces and architecture simulation. My work focuses on translating technical requirements into implementable designs, building reusable hardware components, developing systematic verification strategies and analysing results through simulation and testing.",
+      "Through my engineering internship and academic projects, I have worked with digital interfaces, peripheral IP, verification environments, processor architecture and performance analysis. I enjoy understanding why a design behaves as it does, identifying failure conditions and using evidence to improve reliability and performance. I am currently seeking a full-time engineering opportunity where I can contribute to hardware development, learn from experienced engineers and grow into increasingly complex design and verification responsibilities."
     ],
     "focus": [
       "ASIC Design",
