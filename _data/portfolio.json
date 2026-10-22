@@ -4,7 +4,7 @@
     "name": "Prashray Nagar",
     "title": "ASIC/FPGA Design and Verification Engineer",
     "location": "Berkeley, California",
-    "email": "nagarprashray16@gmail.com",
+    "email": "nagarprashray@gmail.com",
     "github_url": "https://github.com/nagarprashray",
     "github_label": "github.com/nagarprashray",
     "linkedin_url": "https://www.linkedin.com/in/nagarprashray/",
@@ -15,7 +15,7 @@
       "I am a computer engineer with a background in digital hardware design, verification, FPGA-based prototyping and computer architecture. I completed my Master of Computer Engineering at North Carolina State University, where I developed practical experience through engineering projects involving SystemVerilog, UVM, RTL development, hardware interfaces and architecture simulation. My work focuses on translating technical requirements into implementable designs, building reusable hardware components, developing systematic verification strategies and analysing results through simulation and testing.",
       "Through my engineering internship and academic projects, I have worked with digital interfaces, peripheral IP, verification environments, processor architecture and performance analysis. I enjoy understanding why a design behaves as it does, identifying failure conditions and using evidence to improve reliability and performance. I am currently seeking a full-time engineering opportunity where I can contribute to hardware development, learn from experienced engineers and grow into increasingly complex design and verification responsibilities."
     ],
-    
+
     "focus": [
       "ASIC Design",
       "FPGA Design",
